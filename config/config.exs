@@ -31,6 +31,11 @@ import Config
 
 config :music_db, :ecto_repos, [MusicDB.Repo]
 
+config :music_db, MusicDB.Repo,
+  migration_primary_key: [id: :code, type: :string],
+  migration_timestamps: [type: :utc_datetime],
+  migration_lock: nil
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
