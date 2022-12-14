@@ -15,5 +15,8 @@ defmodule MusicDB.Repo do
     MusicDB.Repo.__adapter__ == Ecto.Adapters.Postgres
   end
 
-end
 
+  defmacro lower(arg) do
+    quote do: fragment("lower(?)", unquote(arg))
+  end
+end
